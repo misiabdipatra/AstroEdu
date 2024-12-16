@@ -8,8 +8,17 @@ use Illuminate\Support\Facades\DB;
 class QuizSeeder extends Seeder
 {
     public function run()
-    {   
-        // pertanyaan untuk quiz
+    {
+        // Tambahkan quiz
+        $quizId = DB::table('quizzes')->insertGetId([
+            'course_id' => 21, // ID course terkait
+            'title' => 'Exploring the Wonders of Science',
+            'description' => 'Test your basic science knowledge.',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        
+        // Tambahkan pertanyaan untuk quiz
         DB::table('questions')->insert([
             [
                 'quiz_id' => $quizId,
