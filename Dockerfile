@@ -37,7 +37,7 @@ RUN composer require laravel/sanctum \
 # Configure Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 80
+EXPOSE 9000
 
 # Start PHP-FPM and Nginx
 CMD php-fpm -D && nginx -g 'daemon off;'
